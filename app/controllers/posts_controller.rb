@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.latest_posts
+    cookies.encrypted[:enc_total_posts]=@posts.size
   end
 
   def show
@@ -22,5 +23,5 @@ class PostsController < ApplicationController
   def posts_params
     params.require(:post).permit(:body)
   end
-  
+
 end
