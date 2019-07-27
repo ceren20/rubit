@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post=Post.find(params[:id])
   end
 
   def new
@@ -12,6 +13,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    render plain: params.inspect
+    @post=Post.create(posts_params)
+    #render plain: params.inspect
+    redirect_to @post
   end
+
+  private
+  def posts_params
+    params.require(:post).permit(:body)
+  end
+  
 end
