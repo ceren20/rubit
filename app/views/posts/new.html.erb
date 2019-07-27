@@ -5,8 +5,26 @@
   <%= content_for :page_title, 'Posts details' %>
 
   <h1>Posts#new</h1>
-
+  <h1>Post Create</h1>
   <%= form_with model:@post ,local: true do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title ,placeholder: 'Başlığı giriniz' %>
+  <%= form.label :body %>
   <%= form.text_area :body %>
-   <%= submit_tag %>
+  <%= form.submit %>
+<% end %>
+<h1>User Create</h1>
+<%= form_with model: @user,local: true do |f| %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.label :phone %>
+<%= f.telephone_field :phone %>
+<%= f.label :birthdate %>
+<%= f.date_field :birthdate %>
+<%= f.label :color %>
+<%= f.color_field :color %>
+<%= f.submit %>
+
 <% end %>
