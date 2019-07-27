@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Rubit -
+      <%= content_for?(:page_title) ? yield(:page_title) : "Hoşgeldiniz" %>
+    </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Rubit Example</h1>
+    <%= yield :action_name %>
+    <%= yield %>
+  </body>
+</html>
